@@ -1,5 +1,6 @@
-import React from 'react';
-import { Layout } from 'antd';
+import React, { useState } from 'react';
+import { Layout, Input } from 'antd';
+import { UserOutlined } from '@ant-design/icons'; // Import UserOutlined icon
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -22,7 +23,7 @@ const headerStyle = {
     height: 64,
     paddingInline: 48,
     lineHeight: '64px',
-    backgroundColor: lightBlue, // Change to lightBlue
+    backgroundColor: lightBlue,
 };
 
 const contentStyle = {
@@ -30,20 +31,20 @@ const contentStyle = {
     minHeight: 120,
     lineHeight: '120px',
     color: darkGray,
-    backgroundColor: lightGray, // Change to lightGray
+    backgroundColor: lightGray,
 };
 
 const siderStyle = {
     textAlign: 'center',
     lineHeight: '120px',
     color: darkGray,
-    backgroundColor: lightYellow, // Change to lightYellow
+    backgroundColor: lightYellow,
 };
 
 const footerStyle = {
     textAlign: 'center',
     color: darkGray,
-    backgroundColor: lightBlue, // Change to lightBlue
+    backgroundColor: lightBlue,
 };
 
 const layoutStyle = {
@@ -53,15 +54,26 @@ const layoutStyle = {
     height: '100vh',
 };
 
-const App = () => (
-    <Layout style={layoutStyle}>
-        <Header style={headerStyle}>Header</Header>
-        <Layout>
-            <Sider width="25%" style={siderStyle}>Sider</Sider>
-            <Content style={contentStyle}>Content</Content>
+const App = () => {
+    const [inputValue, setInputValue] = useState(""); // State to store input value
+
+    const handleInputChange = (e) => {
+        setInputValue(e.target.value); // Update input value in state
+    };
+
+    return (
+        <Layout style={layoutStyle}>
+            <Header style={headerStyle}>Header</Header>
+            <Layout>
+                <Sider width="25%" style={siderStyle}>Sider</Sider>
+                <Content style={contentStyle}>
+                    <Input placeholder="default size" prefix={<UserOutlined />} onChange={handleInputChange} />
+                    <p>Ikäsi: {inputValue}</p> {/* Display input value with "Ikäsi: " */}
+                </Content>
+            </Layout>
+            <Footer style={footerStyle}>Footer</Footer>
         </Layout>
-        <Footer style={footerStyle}>Footer</Footer>
-    </Layout>
-);
+    );
+};
 
 export default App;
