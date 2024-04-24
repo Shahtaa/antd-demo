@@ -1,43 +1,56 @@
 import React from 'react';
-import {Layout} from 'antd';
+import { Layout } from 'antd';
 
-const {Header, Footer, Sider, Content} = Layout;
+const { Header, Footer, Sider, Content } = Layout;
+
+// Define light colors
+const lightColors = {
+    lightBlue: '#D6EAF8',
+    lightGreen: '#D5F5E3',
+    lightYellow: '#FCF3CF',
+    lightPink: '#FADBD8',
+    lightPurple: '#D2B4DE',
+    lightGray: '#F2F3F4',
+    darkGray: '#808B96',
+};
+
+const { lightBlue, lightGreen, lightYellow, lightPink, lightPurple, lightGray, darkGray } = lightColors;
 
 const headerStyle = {
     textAlign: 'center',
-    color: '#fff',
+    color: darkGray,
     height: 64,
     paddingInline: 48,
     lineHeight: '64px',
-    backgroundColor: '#4096ff',
+    backgroundColor: lightBlue, // Change to lightBlue
 };
 
 const contentStyle = {
     textAlign: 'center',
     minHeight: 120,
     lineHeight: '120px',
-    color: '#fff',
-    backgroundColor: '#0958d9',
+    color: darkGray,
+    backgroundColor: lightGray, // Change to lightGray
 };
 
 const siderStyle = {
     textAlign: 'center',
     lineHeight: '120px',
-    color: '#fff',
-    backgroundColor: '#1677ff',
+    color: darkGray,
+    backgroundColor: lightYellow, // Change to lightYellow
 };
 
 const footerStyle = {
     textAlign: 'center',
-    color: '#fff',
-    backgroundColor: '#4096ff',
+    color: darkGray,
+    backgroundColor: lightBlue, // Change to lightBlue
 };
 
 const layoutStyle = {
     borderRadius: 8,
     overflow: 'hidden',
     width: '100vw',
-    height: '100vh'
+    height: '100vh',
 };
 
 const App = () => (
